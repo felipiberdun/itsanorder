@@ -12,23 +12,11 @@ import java.io.Serializable;
 public class OrderStatusChangeRequest implements Serializable {
 
     @NotNull
-    private Long orderId;
-    @NotNull
     private OrderStatus status;
     @NotNull
     private Source source;
 
     public OrderStatusChangeRequest() {
-    }
-
-    public OrderStatusChangeRequest(Long orderId, OrderStatus status, Source source) {
-        this.orderId = orderId;
-        this.status = status;
-        this.source = source;
-    }
-
-    public Long getOrderId() {
-        return orderId;
     }
 
     public OrderStatus getStatus() {

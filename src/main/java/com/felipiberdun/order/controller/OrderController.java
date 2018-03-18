@@ -60,7 +60,7 @@ public class OrderController {
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping(value = "/api/v1/orders/{id]/status")
+    @PutMapping(value = "/api/v1/orders/{id}/status")
     public void updateStatus(@PathVariable("id") final Long id,
                              @RequestBody final OrderStatusChangeRequest statusChangeRequest) {
         orderService.updateStatus(id, statusChangeRequest);

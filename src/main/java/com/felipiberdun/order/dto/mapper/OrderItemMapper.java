@@ -15,7 +15,8 @@ public interface OrderItemMapper {
 
     @Mappings(value = {
             @Mapping(target = "orderId", source = "orderItem.order.id"),
-            @Mapping(target = "productId", source = "orderItem.product.id")
+            @Mapping(target = "productId", source = "orderItem.product.id"),
+            @Mapping(target = "productName", source = "orderItem.product.name")
     })
     OrderItemDto toDto(final OrderItem orderItem);
 
