@@ -1,7 +1,7 @@
 package com.felipiberdun.order.dto.mapper;
 
 import com.felipiberdun.order.domain.OrderItem;
-import com.felipiberdun.order.dto.external.OrderItemDto;
+import com.felipiberdun.order.dto.output.OrderItemDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;

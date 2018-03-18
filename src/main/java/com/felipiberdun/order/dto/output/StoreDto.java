@@ -1,20 +1,19 @@
-package com.felipiberdun.order.dto.external;
+package com.felipiberdun.order.dto.output;
 
-import java.time.LocalDateTime;
+import java.io.Serializable;
 
 /**
  * @author Felipi Berdun
  * @since 1.1
  */
-public class CustomerDto {
+public class StoreDto implements Serializable {
 
     private Long id;
-    private String email;
     private String name;
     private String address;
-    private LocalDateTime creation;
+    private Long cousineId;
 
-    public CustomerDto() {
+    public StoreDto() {
     }
 
     public Long getId() {
@@ -23,14 +22,6 @@ public class CustomerDto {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getName() {
@@ -49,11 +40,12 @@ public class CustomerDto {
         this.address = address;
     }
 
-    public LocalDateTime getCreation() {
-        return creation;
+    public Long getCousineId() {
+        return cousineId;
     }
 
-    public void setCreation(LocalDateTime creation) {
-        this.creation = creation;
+    public void setCousineId(Long cousineId) {
+        this.cousineId = cousineId;
     }
+
 }

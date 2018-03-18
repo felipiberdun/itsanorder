@@ -1,7 +1,7 @@
 package com.felipiberdun.order.controller;
 
 import com.felipiberdun.order.domain.Customer;
-import com.felipiberdun.order.dto.external.CustomerDto;
+import com.felipiberdun.order.dto.output.CustomerDto;
 import com.felipiberdun.order.dto.mapper.CustomerMapper;
 import com.felipiberdun.order.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;

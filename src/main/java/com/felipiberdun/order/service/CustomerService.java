@@ -1,7 +1,7 @@
 package com.felipiberdun.order.service;
 
 import com.felipiberdun.order.domain.Customer;
-import com.felipiberdun.order.dto.external.CustomerDto;
+import com.felipiberdun.order.dto.output.CustomerDto;
 
 /**
  * @author Felipi Berdun

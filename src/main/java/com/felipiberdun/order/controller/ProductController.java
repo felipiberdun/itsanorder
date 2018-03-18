@@ -1,6 +1,6 @@
 package com.felipiberdun.order.controller;
 
-import com.felipiberdun.order.dto.external.ProductDto;
+import com.felipiberdun.order.dto.output.ProductDto;
 import com.felipiberdun.order.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

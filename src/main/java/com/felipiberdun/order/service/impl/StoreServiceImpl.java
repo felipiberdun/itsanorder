@@ -2,7 +2,7 @@ package com.felipiberdun.order.service.impl;
 
 import com.felipiberdun.order.domain.Product;
 import com.felipiberdun.order.domain.Store;
-import com.felipiberdun.order.dto.external.StoreDto;
+import com.felipiberdun.order.dto.output.StoreDto;
 import com.felipiberdun.order.dto.mapper.StoreMapper;
 import com.felipiberdun.order.exception.EntityNotFoundException;
 import com.felipiberdun.order.repository.ProductRepository;

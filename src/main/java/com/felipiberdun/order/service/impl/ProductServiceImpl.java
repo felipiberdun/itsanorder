@@ -1,6 +1,6 @@
 package com.felipiberdun.order.service.impl;
 
-import com.felipiberdun.order.dto.external.ProductDto;
+import com.felipiberdun.order.dto.output.ProductDto;
 import com.felipiberdun.order.dto.mapper.ProductMapper;
 import com.felipiberdun.order.exception.EntityNotFoundException;
 import com.felipiberdun.order.repository.ProductRepository;

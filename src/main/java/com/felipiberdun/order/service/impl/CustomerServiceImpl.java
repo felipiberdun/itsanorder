@@ -1,7 +1,7 @@
 package com.felipiberdun.order.service.impl;
 
 import com.felipiberdun.order.domain.Customer;
-import com.felipiberdun.order.dto.external.CustomerDto;
+import com.felipiberdun.order.dto.output.CustomerDto;
 import com.felipiberdun.order.dto.mapper.CustomerMapper;
 import com.felipiberdun.order.exception.EntityNotFoundException;
 import com.felipiberdun.order.exception.ExistentUserException;

@@ -2,8 +2,8 @@ package com.felipiberdun.order.service;
 
 import com.felipiberdun.order.domain.Order;
 import com.felipiberdun.order.dto.OrderStatusChangeRequest;
-import com.felipiberdun.order.dto.external.CustomerDto;
-import com.felipiberdun.order.dto.external.OrderDto;
+import com.felipiberdun.order.dto.output.CustomerDto;
+import com.felipiberdun.order.dto.output.OrderDto;
 
 /**
  * @author Felipi Berdun

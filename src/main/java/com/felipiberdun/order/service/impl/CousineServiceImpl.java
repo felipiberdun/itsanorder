@@ -1,8 +1,8 @@
 package com.felipiberdun.order.service.impl;
 
 import com.felipiberdun.order.domain.Cousine;
-import com.felipiberdun.order.dto.external.CousineDto;
-import com.felipiberdun.order.dto.external.StoreDto;
+import com.felipiberdun.order.dto.output.CousineDto;
+import com.felipiberdun.order.dto.output.StoreDto;
 import com.felipiberdun.order.dto.mapper.CousineMapper;
 import com.felipiberdun.order.dto.mapper.StoreMapper;
 import com.felipiberdun.order.exception.EntityNotFoundException;

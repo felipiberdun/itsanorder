@@ -1,4 +1,4 @@
-package com.felipiberdun.order.dto.external;
+package com.felipiberdun.order.dto.output;
 
 import org.hibernate.validator.constraints.NotBlank;
 

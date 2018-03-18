@@ -1,6 +1,6 @@
 package com.felipiberdun.order.service;
 
-import com.felipiberdun.order.dto.external.ProductDto;
+import com.felipiberdun.order.dto.output.ProductDto;
 
 import java.util.List;
 

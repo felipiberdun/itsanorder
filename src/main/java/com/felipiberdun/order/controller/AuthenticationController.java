@@ -2,7 +2,7 @@ package com.felipiberdun.order.controller;
 
 import com.felipiberdun.order.domain.Customer;
 import com.felipiberdun.order.domain.Token;
-import com.felipiberdun.order.dto.external.LoginCredentials;
+import com.felipiberdun.order.dto.output.LoginCredentials;
 import com.felipiberdun.order.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

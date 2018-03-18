@@ -3,8 +3,8 @@ package com.felipiberdun.order.controller;
 import com.felipiberdun.order.domain.Order;
 import com.felipiberdun.order.domain.OrderStatus;
 import com.felipiberdun.order.dto.OrderStatusChangeRequest;
-import com.felipiberdun.order.dto.external.CustomerDto;
-import com.felipiberdun.order.dto.external.OrderDto;
+import com.felipiberdun.order.dto.output.CustomerDto;
+import com.felipiberdun.order.dto.output.OrderDto;
 import com.felipiberdun.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 
 /**
@@ -62,7 +63,7 @@ public class OrderController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping(value = "/api/v1/orders/{id}/status")
     public void updateStatus(@PathVariable("id") final Long id,
-                             @RequestBody final OrderStatusChangeRequest statusChangeRequest) {
+                             @Valid @RequestBody final OrderStatusChangeRequest statusChangeRequest) {
         orderService.updateStatus(id, statusChangeRequest);
     }
 
