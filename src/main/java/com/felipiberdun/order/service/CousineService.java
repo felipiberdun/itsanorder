@@ -12,7 +12,7 @@ import java.util.Optional;
  */
 public interface CousineService {
 
-    List<Cousine> findAll();
+    List<Cousine> find();
 
     Optional<Cousine> findById(final Long id);
 

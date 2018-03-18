@@ -24,6 +24,11 @@ public class Store {
     @Column(name = "NAME")
     private String name;
 
+    @NotBlank
+    @Size(max = 500)
+    @Column(name = "FULL_ADDRESS")
+    private String fullAddress;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "COUSINE_ID", referencedColumnName = "ID")
     private Cousine cousine;
@@ -45,6 +50,14 @@ public class Store {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getFullAddress() {
+        return fullAddress;
+    }
+
+    public void setFullAddress(String fullAddress) {
+        this.fullAddress = fullAddress;
     }
 
     public Cousine getCousine() {

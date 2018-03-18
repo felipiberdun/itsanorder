@@ -1,8 +1,7 @@
 package com.felipiberdun.order.controller;
 
-import com.felipiberdun.order.domain.Cousine;
-import com.felipiberdun.order.domain.Store;
-import com.felipiberdun.order.service.CousineService;
+import com.felipiberdun.order.dto.external.ProductDto;
+import com.felipiberdun.order.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,32 +16,33 @@ import java.util.List;
  * @author Felipi Berdun
  * @since 1.1
  */
-@RestController(value = "/api/v1/cousine")
-public class CousineController {
+@RestController(value = "/api/v1/products")
+public class ProductController {
 
-    private final CousineService cousineService;
+    private final ProductService productService;
 
     @Autowired
-    public CousineController(final CousineService cousineService) {
-        this.cousineService = cousineService;
+    public ProductController(final ProductService productService) {
+        this.productService = productService;
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<Cousine> findAll() {
-        return cousineService.find();
+    public List<ProductDto> findAll() {
+        return productService.find();
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/search/{searchText}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<Cousine> findByDescription(@PathVariable("searchText") final String criteria) {
-        return cousineService.find();
+    public List<ProductDto> find(@PathVariable("searchText") final String criteria) {
+        //TODO Create filter
+        return productService.find();
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = "/{id}/stores")
-    public List<Store> findStores(@PathVariable("id") final Long cousineId) {
-        return cousineService.findStoresByCousine(cousineId);
+    @GetMapping(value = "/{id}")
+    public ProductDto findById(@PathVariable("id") final Long id) {
+        return productService.findById(id);
     }
 
 }

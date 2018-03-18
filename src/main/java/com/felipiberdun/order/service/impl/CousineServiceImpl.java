@@ -29,7 +29,7 @@ public class CousineServiceImpl implements CousineService {
     }
 
     @Override
-    public List<Cousine> findAll() {
+    public List<Cousine> find() {
         return cousineRepository.findAll();
     }
 

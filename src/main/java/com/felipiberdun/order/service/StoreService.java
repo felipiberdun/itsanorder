@@ -1,9 +1,9 @@
 package com.felipiberdun.order.service;
 
-import com.felipiberdun.order.domain.Store;
+import com.felipiberdun.order.domain.Product;
+import com.felipiberdun.order.dto.external.StoreDto;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @author Felipi Berdun
@@ -11,8 +11,10 @@ import java.util.Optional;
  */
 public interface StoreService {
 
-    List<Store> find();
+    List<StoreDto> find();
 
-    Optional<Store> findById(final Long id);
+    StoreDto findById(final Long id);
+
+    List<Product> findProducts(final Long storeId);
 
 }

@@ -13,7 +13,7 @@ INSERT INTO ORDER_STATUS (ID, DESCRIPTION) VALUES (5, 'Cancelled');
 INSERT INTO ORDER_STATUS (ID, DESCRIPTION) VALUES (6, 'Deliveried');
 
 CREATE TABLE CUSTOMER (
-    ID                  INTEGER         NOT NULL,
+    ID                  SERIAL          NOT NULL,
     EMAIL               VARCHAR(200)    NOT NULL,
     PASSWORD            VARCHAR(100)    NOT NULL,
     FULL_NAME           VARCHAR(200)    NOT NULL,
@@ -24,15 +24,16 @@ CREATE TABLE CUSTOMER (
 );
 
 CREATE TABLE COUSINE (
-    ID                  INTEGER         NOT NULL,
+    ID                  SERIAL          NOT NULL,
     DESCRIPTION         VARCHAR(200)    NOT NULL,
 
     CONSTRAINT PK_COUSINE PRIMARY KEY (ID)
 );
 
 CREATE TABLE STORE (
-    ID                  INTEGER         NOT NULL,
+    ID                  SERIAL          NOT NULL,
     NAME                VARCHAR(120)    NOT NULL,
+    FULL_ADDRESS        VARCHAR(500)    NOT NULL,
     COUSINE_ID          INTEGER         NOT NULL,
 
     CONSTRAINT PK_STORE PRIMARY KEY (ID),
@@ -40,7 +41,7 @@ CREATE TABLE STORE (
 );
 
 CREATE TABLE PRODUCT (
-    ID                  INTEGER         NOT NULL,
+    ID                  SERIAL          NOT NULL,
     STORE_ID            INTEGER         NOT NULL,
     NAME                VARCHAR(120)    NOT NULL,
     DESCRIPTION         VARCHAR         NOT NULL,
@@ -51,7 +52,7 @@ CREATE TABLE PRODUCT (
 );
 
 CREATE TABLE ORDERS (
-    ID                  INTEGER         NOT NULL,
+    ID                  SERIAL          NOT NULL,
     CREATION_DATE       TIMESTAMP       NOT NULL,
     DELIVERY_ADDRESS    VARCHAR(500)    NOT NULL,
     CONTACT             VARCHAR(200)    NOT NULL,
@@ -68,7 +69,7 @@ CREATE TABLE ORDERS (
 );
 
 CREATE TABLE ORDER_ITEM (
-    ID                  INTEGER         NOT NULL,
+    ID                  SERIAL          NOT NULL,
     ORDER_ID            INTEGER         NOT NULL,
     PRODUCT_ID          INTEGER         NOT NULL,
     PRICE               NUMERIC(15, 2)  NOT NULL,

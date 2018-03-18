@@ -1,5 +1,6 @@
 package com.felipiberdun.order.service;
 
+import com.felipiberdun.order.domain.Customer;
 import com.felipiberdun.order.domain.Order;
 
 import java.util.Optional;
@@ -10,8 +11,10 @@ import java.util.Optional;
  */
 public interface OrderService {
 
-    Optional<Order> findById(final Long id);
+    Order findById(final Long id);
 
     Order create(final Order order);
+
+    Customer findCustomerOrder(final Long orderId);
 
 }
