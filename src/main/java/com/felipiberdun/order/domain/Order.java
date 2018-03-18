@@ -1,6 +1,5 @@
 package com.felipiberdun.order.domain;
 
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -43,10 +42,12 @@ public class Order {
     @Column(name = "CONTACT")
     private String contact;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "STORE_ID", referencedColumnName = "ID")
     private Store store;
 
+    @Size(min = 1)
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "order")
     private List<OrderItem> orderItems;
 
