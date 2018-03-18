@@ -1,5 +1,6 @@
 package com.felipiberdun.order.domain;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.security.core.GrantedAuthority;
@@ -21,7 +22,16 @@ import java.util.Objects;
 public class Customer implements UserDetails {
 
     @Id
-    @GeneratedValue
+    @GenericGenerator(
+            name = "SEQ_COSTUMER",
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = {
+                    @org.hibernate.annotations.Parameter(name = "sequence_name", value = "customer_id_seq"),
+                    @org.hibernate.annotations.Parameter(name = "initial_value", value = "1"),
+                    @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
+            }
+    )
+    @GeneratedValue(generator = "SEQ_COSTUMER")
     @Column(name = "ID")
     private Long id;
 

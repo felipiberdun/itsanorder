@@ -27,7 +27,7 @@ public class ApiExecptionHandler extends ResponseEntityExceptionHandler {
 
         return ResponseEntity.status(responseStatus)
                 .headers(new HttpHeaders())
-                .body(null); //ADICIONAR ALGUM BODY AQUI, SE ADICIONADO NA BASE EXCEPTION
+                .body(ex.getMessage()); //Create a better way to outut the exception content
     }
 
 }

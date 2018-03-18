@@ -30,7 +30,7 @@
         <junit.version>4.12</junit.version>
         <assertj.version>3.6.2</assertj.version>
         <jacoco.version>0.7.9</jacoco.version>
-        <driver.postgres.version>9.4.1212</driver.postgres.version>
+        <driver.mysql.version>9.4.1212</driver.mysql.version>
         <swagger.version>2.7.0</swagger.version>
         <mapstruct.version>1.2.0.Final</mapstruct.version>
     </properties>
@@ -115,10 +115,19 @@
         </dependency>
 
         <!-- PostgresSQL Driver -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>${driver.postgres.version}</version>
+        </dependency>-->
+        <!--<dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>-->
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
         </dependency>
 
         <!-- Commons-Lang -->
@@ -209,6 +218,9 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring.boot.version}</version>
+                <configuration>
+                    <executable>true</executable>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>

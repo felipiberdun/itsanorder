@@ -2,6 +2,8 @@ package com.felipiberdun.order.controller;
 
 import com.felipiberdun.order.domain.Customer;
 import com.felipiberdun.order.domain.Order;
+import com.felipiberdun.order.domain.OrderStatus;
+import com.felipiberdun.order.dto.OrderStatusChangeRequest;
 import com.felipiberdun.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -48,6 +50,19 @@ public class OrderController {
     @GetMapping(value = "/{id}/customer")
     public Customer findCustomer(@PathVariable("id") final Long orderId) {
         return orderService.findCustomerOrder(orderId);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(value = "/{id}/status", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public OrderStatus findOrderStatus(@PathVariable("id") final Long id) {
+        return orderService.findById(id).getStatus();
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PutMapping(value = "/{id]/status")
+    public void updateStatus(@PathVariable("id") final Long id,
+                             @RequestBody final OrderStatusChangeRequest statusChangeRequest) {
+        orderService.updateStatus(id, statusChangeRequest);
     }
 
 }
