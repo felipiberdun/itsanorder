@@ -25,12 +25,8 @@ import java.io.IOException;
  */
 public class AuthenticationFilter extends OncePerRequestFilter {
 
-    private final AuthenticationService authenticationService;
-
     @Autowired
-    public AuthenticationFilter(final AuthenticationService authenticationService) {
-        this.authenticationService = authenticationService;
-    }
+    private AuthenticationService authenticationService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

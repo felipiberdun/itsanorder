@@ -48,7 +48,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Customer findCustomerOrder(final Long orderId) {
         final Order order = orderRepository.findById(orderId).orElseThrow(EntityNotFoundException::new);
-        return customerRepository.findCustomerByOrder(order).orElseThrow(EntityNotFoundException::new);
+        return order.getCustomer();
     }
 
     @Override

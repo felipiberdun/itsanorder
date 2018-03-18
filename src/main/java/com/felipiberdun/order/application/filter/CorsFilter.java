@@ -1,7 +1,6 @@
 package com.felipiberdun.order.application.filter;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -21,7 +20,7 @@ public class CorsFilter extends OncePerRequestFilter {
     private final boolean corsEnabled;
 
     @Autowired
-    public CorsFilter(@Value("${api.cors.enabled}") final Boolean corsEnabled) {
+    public CorsFilter(final Boolean corsEnabled) {
         this.corsEnabled = Optional.ofNullable(corsEnabled).orElse(false);
     }
 

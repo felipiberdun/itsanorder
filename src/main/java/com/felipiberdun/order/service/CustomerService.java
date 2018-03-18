@@ -8,6 +8,8 @@ import com.felipiberdun.order.domain.Customer;
  */
 public interface CustomerService {
 
+    Customer findById(final Long id);
+
     Customer create(final Customer customer);
 
 }

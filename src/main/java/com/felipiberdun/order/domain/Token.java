@@ -105,7 +105,7 @@ public class Token {
             final UUID id = UUID.fromString(Optional.ofNullable(claims.getId()).orElseThrow(InvalidTokenException::new));
             final LocalDateTime createdAt = LocalDateTime.ofInstant(Optional.ofNullable(claims.getIssuedAt()).orElseThrow(InvalidTokenException::new).toInstant(), ZoneId.systemDefault());
             final LocalDateTime expiresAt = claims.getExpiration() == null ? null : LocalDateTime.ofInstant(claims.getExpiration().toInstant(), ZoneId.systemDefault());
-            final Long customerId = Long.valueOf(Optional.ofNullable(claims.get(CUSTOMER_ID, String.class)).orElseThrow(InvalidTokenException::new));
+            final Long customerId = Long.valueOf(Optional.ofNullable(claims.get(CUSTOMER_ID, Integer.class)).orElseThrow(InvalidTokenException::new));
 
             return new Token(id, createdAt, expiresAt, customerId, extractedToken);
         } catch (RuntimeException ex) {

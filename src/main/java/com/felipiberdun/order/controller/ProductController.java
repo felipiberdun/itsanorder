@@ -16,7 +16,7 @@ import java.util.List;
  * @author Felipi Berdun
  * @since 1.1
  */
-@RestController(value = "/api/v1/products")
+@RestController
 public class ProductController {
 
     private final ProductService productService;
@@ -27,20 +27,20 @@ public class ProductController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "/api/v1/products", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<ProductDto> findAll() {
         return productService.find();
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = "/search/{searchText}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "/api/v1/products/search/{searchText}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<ProductDto> find(@PathVariable("searchText") final String criteria) {
         //TODO Create filter
         return productService.find();
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/api/v1/products/{id}")
     public ProductDto findById(@PathVariable("id") final Long id) {
         return productService.findById(id);
     }

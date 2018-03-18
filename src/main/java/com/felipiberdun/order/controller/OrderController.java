@@ -18,7 +18,7 @@ import java.net.URI;
  * @author Felipi Berdun
  * @since 1.1
  */
-@RestController(value = "/api/v1/order")
+@RestController
 public class OrderController {
 
     private final OrderService orderService;
@@ -29,12 +29,12 @@ public class OrderController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "/api/v1/orders/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Order findById(@PathVariable("id") final Long id) {
         return orderService.findById(id);
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PostMapping(value = "/api/v1/orders", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Void> create(@RequestBody final Order order) {
         final Order createdOrder = orderService.create(order);
 
@@ -47,19 +47,19 @@ public class OrderController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = "/{id}/customer")
+    @GetMapping(value = "/api/v1/orders/{id}/customer")
     public Customer findCustomer(@PathVariable("id") final Long orderId) {
         return orderService.findCustomerOrder(orderId);
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = "/{id}/status", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "/api/v1/orders/{id}/status", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public OrderStatus findOrderStatus(@PathVariable("id") final Long id) {
         return orderService.findById(id).getStatus();
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping(value = "/{id]/status")
+    @PutMapping(value = "/api/v1/orders/{id]/status")
     public void updateStatus(@PathVariable("id") final Long id,
                              @RequestBody final OrderStatusChangeRequest statusChangeRequest) {
         orderService.updateStatus(id, statusChangeRequest);
