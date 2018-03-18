@@ -23,11 +23,15 @@
         <jwt.version>0.7.0</jwt.version>
         <slf4j.version>1.7.25</slf4j.version>
         <logback.version>1.2.3</logback.version>
+        <hibernate.core.version>5.0.12.Final</hibernate.core.version>
+        <hibernate.validator.version>5.4.1.Final</hibernate.validator.version>
+        <el.version>3.0.0</el.version>
         <querydsl.version>4.1.4</querydsl.version>
         <junit.version>4.12</junit.version>
         <assertj.version>3.6.2</assertj.version>
         <jacoco.version>0.7.9</jacoco.version>
         <driver.postgres.version>9.4.1212</driver.postgres.version>
+        <swagger.version>2.7.0</swagger.version>
     </properties>
 
     <dependencyManagement>
@@ -76,9 +80,24 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-java8</artifactId>
         </dependency>
+
+        <!-- Hibernate Core -->
         <dependency>
             <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-jpamodelgen</artifactId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.core.version}</version>
+        </dependency>
+
+        <!-- Hibernate Validator -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate.validator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>${el.version}</version>
         </dependency>
 
         <!-- Jackson Hibernate5 -->
@@ -147,6 +166,18 @@
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- SWAGGER -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
         </dependency>
     </dependencies>
 
