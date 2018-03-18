@@ -1,7 +1,6 @@
 package com.felipiberdun.order.controller;
 
-import com.felipiberdun.order.domain.Cousine;
-import com.felipiberdun.order.domain.Store;
+import com.felipiberdun.order.dto.external.CousineDto;
 import com.felipiberdun.order.dto.external.StoreDto;
 import com.felipiberdun.order.service.CousineService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +29,13 @@ public class CousineController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/api/v1/cousine", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<Cousine> findAll() {
+    public List<CousineDto> findAll() {
         return cousineService.find();
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/api/v1/cousine/search/{searchText}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<Cousine> findByDescription(@PathVariable("searchText") final String criteria) {
+    public List<CousineDto> findByDescription(@PathVariable("searchText") final String criteria) {
         return cousineService.find();
     }
 

@@ -1,11 +1,9 @@
 package com.felipiberdun.order.service;
 
-import com.felipiberdun.order.domain.Customer;
 import com.felipiberdun.order.domain.Order;
-import com.felipiberdun.order.domain.OrderStatus;
 import com.felipiberdun.order.dto.OrderStatusChangeRequest;
-
-import java.util.Optional;
+import com.felipiberdun.order.dto.external.CustomerDto;
+import com.felipiberdun.order.dto.external.OrderDto;
 
 /**
  * @author Felipi Berdun
@@ -13,12 +11,12 @@ import java.util.Optional;
  */
 public interface OrderService {
 
-    Order findById(final Long id);
+    OrderDto findById(final Long id);
 
-    Order create(final Order order);
+    OrderDto create(final Order order);
 
-    Customer findCustomerOrder(final Long orderId);
+    CustomerDto findCustomerOrder(final Long orderId);
 
-    Order updateStatus(final Long id, final OrderStatusChangeRequest statusChangeRequest);
+    OrderDto updateStatus(final Long id, final OrderStatusChangeRequest statusChangeRequest);
 
 }

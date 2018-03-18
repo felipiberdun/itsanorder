@@ -1,11 +1,9 @@
 package com.felipiberdun.order.service;
 
-import com.felipiberdun.order.domain.Cousine;
-import com.felipiberdun.order.domain.Store;
+import com.felipiberdun.order.dto.external.CousineDto;
 import com.felipiberdun.order.dto.external.StoreDto;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @author Felipi Berdun
@@ -13,9 +11,9 @@ import java.util.Optional;
  */
 public interface CousineService {
 
-    List<Cousine> find();
+    List<CousineDto> find();
 
-    Optional<Cousine> findById(final Long id);
+    CousineDto findById(final Long id);
 
     List<StoreDto> findStoresByCousine(final Long cousineId);
 

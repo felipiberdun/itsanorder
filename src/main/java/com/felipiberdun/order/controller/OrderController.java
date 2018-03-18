@@ -1,9 +1,10 @@
 package com.felipiberdun.order.controller;
 
-import com.felipiberdun.order.domain.Customer;
 import com.felipiberdun.order.domain.Order;
 import com.felipiberdun.order.domain.OrderStatus;
 import com.felipiberdun.order.dto.OrderStatusChangeRequest;
+import com.felipiberdun.order.dto.external.CustomerDto;
+import com.felipiberdun.order.dto.external.OrderDto;
 import com.felipiberdun.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,13 +31,13 @@ public class OrderController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/api/v1/orders/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Order findById(@PathVariable("id") final Long id) {
+    public OrderDto findById(@PathVariable("id") final Long id) {
         return orderService.findById(id);
     }
 
     @PostMapping(value = "/api/v1/orders", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Void> create(@RequestBody final Order order) {
-        final Order createdOrder = orderService.create(order);
+        final OrderDto createdOrder = orderService.create(order);
 
         final URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
@@ -48,7 +49,7 @@ public class OrderController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/api/v1/orders/{id}/customer")
-    public Customer findCustomer(@PathVariable("id") final Long orderId) {
+    public CustomerDto findCustomer(@PathVariable("id") final Long orderId) {
         return orderService.findCustomerOrder(orderId);
     }
 
