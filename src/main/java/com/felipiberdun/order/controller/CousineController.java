@@ -28,19 +28,19 @@ public class CousineController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = "/api/v1/cousine", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "/api/v1/cousines", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<CousineDto> findAll() {
         return cousineService.find();
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = "/api/v1/cousine/search/{searchText}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "/api/v1/cousines/search/{searchText}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<CousineDto> findByDescription(@PathVariable("searchText") final String criteria) {
         return cousineService.find();
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = "/api/v1/cousine/{id}/stores")
+    @GetMapping(value = "/api/v1/cousines/{id}/stores")
     public List<StoreDto> findStores(@PathVariable("id") final Long cousineId) {
         return cousineService.findStoresByCousine(cousineId);
     }

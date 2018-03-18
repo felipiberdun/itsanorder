@@ -1,5 +1,7 @@
-package com.felipiberdun.order.application.filter;
+package com.felipiberdun.order.configuration;
 
+import com.felipiberdun.order.application.filter.AuthenticationFilter;
+import com.felipiberdun.order.application.filter.CorsFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -50,6 +52,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/api/v1/customers").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/v1/customers/{id}").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/v1/customers").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/v1/cousines/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/v1/stores/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(authenticationFilter(), UsernamePasswordAuthenticationFilter.class)

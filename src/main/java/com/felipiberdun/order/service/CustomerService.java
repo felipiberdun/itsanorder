@@ -1,6 +1,7 @@
 package com.felipiberdun.order.service;
 
 import com.felipiberdun.order.domain.Customer;
+import com.felipiberdun.order.dto.external.CustomerDto;
 
 /**
  * @author Felipi Berdun
@@ -8,8 +9,8 @@ import com.felipiberdun.order.domain.Customer;
  */
 public interface CustomerService {
 
-    Customer findById(final Long id);
+    CustomerDto findById(final Long id);
 
-    Customer create(final Customer customer);
+    CustomerDto create(final Customer customer);
 
 }
